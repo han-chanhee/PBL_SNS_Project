@@ -1,33 +1,34 @@
 {
   "project_info": {
-    "project_number": "892699472069",
-    "project_id": "pbl-sns-project-1d358",
-    "storage_bucket": "pbl-sns-project-1d358.appspot.com"
+    "project_number": "535680024287",
+    "firebase_url": "https://pbl-sns-project-default-rtdb.firebaseio.com",
+    "project_id": "pbl-sns-project",
+    "storage_bucket": "pbl-sns-project.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:892699472069:android:d16b568c3a4da23a7140ac",
+        "mobilesdk_app_id": "1:535680024287:android:27b1d6b23931019f04336a",
         "android_client_info": {
           "package_name": "com.example.pbl_sns_project"
         }
       },
       "oauth_client": [
         {
-          "client_id": "892699472069-kn8ovj8ur5270bo8pe9mvuvmd8tcte32.apps.googleusercontent.com",
+          "client_id": "535680024287-m0l4tomfsdseeg0p5sr5uo8nrv13gs49.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAwgT9H0ORfwumrpPV4CkFibLo9PoPxvII"
+          "current_key": "AIzaSyA8XOJYK_cbTj7WxfIZpLzUNIc0EvnP9Ao"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "892699472069-kn8ovj8ur5270bo8pe9mvuvmd8tcte32.apps.googleusercontent.com",
+              "client_id": "535680024287-m0l4tomfsdseeg0p5sr5uo8nrv13gs49.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

@@ -1,6 +1,6 @@
 package com.example.pbl_sns_project
 
-import android.content.Intent
+//import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -18,11 +18,13 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
-        auth = Firebase.auth
 
         super.onCreate(savedInstanceState)
+
+
         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        auth = Firebase.auth
         val homeFragment = HomeFragment()
         val allUserFragment = AllUserFragment()
         val myPageFragment = MyPageFragment()
@@ -41,13 +43,13 @@ class MainActivity : AppCompatActivity() {
         }
 
 
-        binding.logout.setOnClickListener {
-            auth.signOut()
-
-            val intent = Intent(this, LoginActivity::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-            startActivity(intent)
-        }
+//        binding.logout.setOnClickListener {
+//            auth.signOut()
+//
+//            val intent1 = Intent(this, LoginActivity::class.java)
+//            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+//            startActivity(intent1)
+//        }
     }
     private fun replaceFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction()
