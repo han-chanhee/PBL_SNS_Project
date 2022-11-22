@@ -10,28 +10,71 @@
         android:id="@+id/fragmentContainer"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavigationView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/bottomNavigationView"/>
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+<!--        <ImageView&ndash;&gt;-->
+<!--        &lt;!&ndash;        android:id="@+id/img_pro1"&ndash;&gt;-->
+<!--        &lt;!&ndash;        android:layout_width="60dp"&ndash;&gt;-->
+<!--        &lt;!&ndash;        android:layout_height="60dp"&ndash;&gt;-->
+<!--        &lt;!&ndash;        app:srcCompat="@drawable/propic1" />&ndash;&gt;-->
+
+<!--        &lt;!&ndash;    <TextView&ndash;&gt;-->
+<!--        &lt;!&ndash;        android:layout_marginTop="5dp"&ndash;&gt;-->
+<!--        &lt;!&ndash;        android:layout_below="@id/img_pro1"&ndash;&gt;-->
+<!--        &lt;!&ndash;        android:layout_width="wrap_content"&ndash;&gt;-->
+<!--        &lt;!&ndash;        android:layout_height="wrap_content"&ndash;&gt;-->
+<!--        &lt;!&ndash;        android:text="Your story" />&ndash;&gt;-->
+        <Button
+            android:id="@+id/logout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="로그아웃" />
+
+    </FrameLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:menu="@menu/bottom_navigation_menu"
+        app:itemIconTint="@drawable/selector_menu_color"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:itemIconTint="@drawable/selector_menu_color"/>
-
-    <Button
-        android:id="@+id/logout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="로그아웃"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:menu="@menu/bottom_navigation_menu" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <?xml version="1.0" encoding="utf-8"?>
+<!--<merge-->
+<!--xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--xmlns:tools="http://schemas.android.com/tools"-->
+<!--    >-->
+
+<!--<RelativeLayout-->
+<!--    android:layout_marginLeft="10dp"-->
+<!--    android:layout_gravity="center"-->
+<!--    android:layout_weight="1"-->
+<!--    android:layout_width="0dp"-->
+<!--    android:layout_height="wrap_content">-->
+
+<!--    <ImageView-->
+<!--        android:id="@+id/img_pro1"-->
+<!--        android:layout_width="60dp"-->
+<!--        android:layout_height="60dp"-->
+<!--        app:srcCompat="@drawable/propic1" />-->
+
+<!--    <TextView-->
+<!--        android:layout_marginTop="5dp"-->
+<!--        android:layout_below="@id/img_pro1"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Your story" />-->
+
+<!--</RelativeLayout>-->
+
+<!--</merge>-->
