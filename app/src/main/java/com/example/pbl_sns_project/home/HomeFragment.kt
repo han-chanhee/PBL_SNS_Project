@@ -70,8 +70,7 @@ class HomeFragment : Fragment(R.layout.fragment_home){
         fragmentHomeBinding.articleRecyclerView.adapter = articleAdapter
         fragmentHomeBinding.addFloatingButton.setOnClickListener{
             context?.let {
-                //val intent = Intent(it, AddArticleActivity::class.java)
-                //startActivity(intent)
+
                 if(auth.currentUser != null){
                     val intent = Intent(it, AddArticleActivity::class.java)
                     startActivity(intent)
@@ -90,7 +89,6 @@ class HomeFragment : Fragment(R.layout.fragment_home){
 
     override fun onResume() {
         super.onResume()
-
         articleAdapter.notifyDataSetChanged()
     }
 

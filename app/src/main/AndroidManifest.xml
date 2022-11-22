@@ -11,21 +11,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PBL_SNS_Project"
-        tools:targetApi="31">
+        tools:targetApi="31"
+        >
         <meta-data
             android:name="com.google.android.actions"
-            android:resource="@xml/btn_blue.xml " />
+            android:value=""
+           />
 
         <activity
             android:name=".JoinActivity"
-            android:exported="false">
+            android:exported="true">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
             android:name=".LoginActivity"
-            android:exported="false">
+            android:exported="true">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -50,7 +52,8 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-        <activity android:name=".home.AddArticleActivity"/>
+        <activity android:name=".home.AddArticleActivity"
+            android:exported="true"/>
     </application>
 
 </manifest>
