@@ -1,14 +1,20 @@
 package com.example.snsproject.home
 
+
 import android.content.Intent
+
 import android.os.Bundle
 import android.view.View
+
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.pbl_sns_project.DBkey.Companion.DB_ARTICLES
+import com.example.pbl_sns_project.DBkey.Companion.DB_USERS
+import com.example.pbl_sns_project.DBkey.Companion.RELATION
+
 import com.example.pbl_sns_project.R
+import com.example.pbl_sns_project.alluser.followlist
 import com.example.pbl_sns_project.databinding.FragmentHomeBinding
-import com.example.pbl_sns_project.home.AddArticleActivity
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
@@ -20,9 +26,11 @@ import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 
 
-class HomeFragment : Fragment(R.layout.fragment_home){
 
+class HomeFragment : Fragment(R.layout.fragment_home){
+    private lateinit var auth : FirebaseAuth
     private  lateinit var articleDB: DatabaseReference
+    private  lateinit var userDB: DatabaseReference
     private lateinit var articleAdapter: ArticleAdapter
     private val articleList = mutableListOf<ArticleModel>()
     private val listener = object : ChildEventListener{
@@ -49,26 +57,55 @@ class HomeFragment : Fragment(R.layout.fragment_home){
 
         }
 
+
     }
 
     private var binding: FragmentHomeBinding? = null
-    private val auth: FirebaseAuth by lazy {
-        Firebase.auth
-    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        auth = Firebase.auth
         super.onViewCreated(view, savedInstanceState)
         val fragmentHomeBinding = FragmentHomeBinding.bind(view)
         binding = fragmentHomeBinding
         articleList.clear()
-
+        articleDB = Firebase.database.reference.child(DB_USERS)
         articleDB = Firebase.database.reference.child(DB_ARTICLES)
 
-        articleAdapter = ArticleAdapter()
+        articleAdapter = ArticleAdapter(onItemClicked = { articleModel ->
+            if (auth.currentUser != null){
+                if(auth.currentUser!!.email != articleModel.userId){
+                    val followItem = followlist(
+                        followingid = auth.currentUser!!.email,
+                        followid = articleModel.userId,
+                        key = System.currentTimeMillis()
+                    )
+                    auth.currentUser!!.email?.let {
+                        userDB.child(it)
+                            .child(RELATION)
+                            .push()
+                            .setValue(followItem)
+                        userDB.child(articleModel.userId)
+                            .child(RELATION)
+                            .push()
+                            .setValue(followItem)
+                    }
+
+                    Snackbar.make(view,"팔로우 완료",Snackbar.LENGTH_LONG).show()
+                }
+                else{
+                    Snackbar.make(view,"${auth.currentUser!!.email}",Snackbar.LENGTH_LONG).show()
+                }
+
+            }
+        })
+
 
 
         fragmentHomeBinding.articleRecyclerView.layoutManager = LinearLayoutManager(context)
         fragmentHomeBinding.articleRecyclerView.adapter = articleAdapter
+
         fragmentHomeBinding.addFloatingButton.setOnClickListener{
+
             context?.let {
 
                 if(auth.currentUser != null){
@@ -82,10 +119,12 @@ class HomeFragment : Fragment(R.layout.fragment_home){
             }
         }
 
+
         articleDB.addChildEventListener(listener)
 
 
     }
+
 
     override fun onResume() {
         super.onResume()
@@ -96,4 +135,5 @@ class HomeFragment : Fragment(R.layout.fragment_home){
         super.onDestroyView()
         articleDB.removeEventListener(listener)
     }
+
 }
