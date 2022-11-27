@@ -44,7 +44,13 @@ class MainActivity : AppCompatActivity() {
             when (it.itemId) {
                 R.id.home -> replaceFragment(homeFragment)
                 R.id.allUser-> replaceFragment(followFragment)
-                R.id.myPage -> replaceFragment(myPageFragment)
+                R.id.myPage -> {
+                    var bundle = Bundle()
+                    var uid = FirebaseAuth.getInstance().currentUser?.uid
+                    bundle.putString("destinationUid", uid)
+                    myPageFragment.arguments = bundle
+                    supportFragmentManager.beginTransaction().replace(R.id.fragmentContainer,myPageFragment).commit()
+                }
             }
             true
         }

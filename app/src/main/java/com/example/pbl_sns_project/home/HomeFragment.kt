@@ -1,6 +1,7 @@
 package com.example.snsproject.home
 
 
+import android.annotation.SuppressLint
 import android.content.Intent
 
 import android.os.Bundle
@@ -34,6 +35,7 @@ class HomeFragment : Fragment(R.layout.fragment_home){
     private lateinit var articleAdapter: ArticleAdapter
     private val articleList = mutableListOf<ArticleModel>()
     private val listener = object : ChildEventListener{
+        @SuppressLint("SuspiciousIndentation")
         override fun onChildAdded(snapshot: DataSnapshot, previousChildName: String?) {
           val articleModel =snapshot.getValue(ArticleModel::class.java)
             articleModel ?: return
