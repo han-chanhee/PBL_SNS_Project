@@ -8,7 +8,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="100dp">
+        android:layout_height="100dp"
+        android:background="#56A2BAD2">
 
         <ImageView
             android:id="@+id/account_profile_imageView"
@@ -24,8 +25,9 @@
             android:id="@+id/account_profile_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constrainedWidth="true"
+            android:backgroundTint="#A2BAD2"
             android:text="follow"
+            app:layout_constrainedWidth="true"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/account_profile_imageView" />
@@ -33,10 +35,11 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal"
+            android:background="#A2BAD2"
             android:gravity="center"
-            app:layout_constrainedWidth="true"
+            android:orientation="horizontal"
             app:layout_constrainedHeight="true"
+            app:layout_constrainedWidth="true"
             app:layout_constraintBottom_toTopOf="@+id/account_profile_button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/account_profile_imageView"
@@ -44,63 +47,69 @@
 
 
             <LinearLayout
-                android:layout_weight="1"
-                android:gravity="center"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
                 android:orientation="vertical">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="post"
-                    android:textSize="16sp"
-                    android:textColor="#000000"/>
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
 
                 <TextView
                     android:id="@+id/account_post_count"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="count_0" />
+                    android:text="count_0"
+                    android:textColor="@color/white" />
             </LinearLayout>
 
             <LinearLayout
-                android:layout_weight="1"
-                android:gravity="center"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
                 android:orientation="vertical">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="follower"
-                    android:textSize="16sp"
-                    android:textColor="#000000"/>
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
 
                 <TextView
                     android:id="@+id/account_follower_count"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="count_0" />
+                    android:text="count_0"
+                    android:textColor="@color/white" />
             </LinearLayout>
 
             <LinearLayout
-                android:layout_weight="1"
-                android:gravity="center"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
                 android:orientation="vertical">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="following"
-                    android:textSize="16sp"
-                    android:textColor="#000000"/>
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
 
                 <TextView
                     android:id="@+id/account_following_count"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="count_0" />
+                    android:text="count_0"
+                    android:textColor="@color/white" />
             </LinearLayout>
 
         </LinearLayout>
@@ -111,4 +120,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         />
+
+
 </LinearLayout>

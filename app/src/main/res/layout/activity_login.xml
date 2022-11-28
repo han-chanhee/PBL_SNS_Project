@@ -8,13 +8,21 @@
     android:backgroundTint="#FFFFFF"
     tools:context=".LoginActivity">
 
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="245dp"
+        android:layout_height="301dp"
+        app:srcCompat="@drawable/bf93aa04d739e3f865f81db8f6c6881b"
+        tools:layout_editor_absoluteX="83dp"
+        tools:layout_editor_absoluteY="225dp" />
+
     <Button
         android:id="@+id/joinbtn"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="1dp"
         android:layout_marginBottom="200dp"
-        android:backgroundTint="#808080"
+        android:backgroundTint="#A2BAD2"
         android:text="회원가입"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -54,7 +62,7 @@
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
-        android:backgroundTint="#808080"
+        android:backgroundTint="#A2BAD2"
         android:text="로그인"
         app:layout_constraintEnd_toEndOf="@+id/joinbtn"
         app:layout_constraintHorizontal_bias="0.0"
