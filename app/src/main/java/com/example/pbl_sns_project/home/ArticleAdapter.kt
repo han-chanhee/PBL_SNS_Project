@@ -25,7 +25,7 @@ class ArticleAdapter(val onItemClickedButton: (ArticleModel)-> Unit): ListAdapte
 
                 val format = SimpleDateFormat("MM월 dd일")
                 val date = Date(articleModel.createdAt)
-                binding.thumbnailImageView
+                binding.photoImageView
                 binding.dateTextView.text = format.format(date).toString()
                 binding.titleTextView.text = articleModel.title
                 binding.emailTextView.text = articleModel.userId
@@ -33,9 +33,9 @@ class ArticleAdapter(val onItemClickedButton: (ArticleModel)-> Unit): ListAdapte
                 binding.cTextView.text = articleModel.content
 
                 if (articleModel.imageUrl.isNotEmpty()) {
-                    Glide.with(binding.thumbnailImageView)
+                    Glide.with(binding.photoImageView)
                         .load(articleModel.imageUrl)
-                        .into(binding.thumbnailImageView)
+                        .into(binding.photoImageView)
                 }
                 binding.button2.setOnClickListener {
                     onItemClickedButton(articleModel)
