@@ -10,9 +10,9 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import com.example.pbl_sns_project.databinding.ActivityMainBinding
-import com.example.snsproject.alluser.FollowFragment
-import com.example.snsproject.home.HomeFragment
-import com.example.snsproject.mypage.MyPageFragment
+import com.example.pbl_sns_project.alluser.FollowFragment
+import com.example.pbl_sns_project.home.HomeFragment
+import com.example.pbl_sns_project.mypage.MyPageFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth

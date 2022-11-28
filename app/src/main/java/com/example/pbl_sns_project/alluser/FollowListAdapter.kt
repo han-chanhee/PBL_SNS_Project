@@ -1,7 +1,6 @@
-package com.example.snsproject.alluser
+package com.example.pbl_sns_project.alluser
 
 
-import android.icu.text.SimpleDateFormat
 import android.view.LayoutInflater
 
 import android.view.ViewGroup
@@ -9,16 +8,16 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import com.example.pbl_sns_project.alluser.followlist
-import com.example.pbl_sns_project.databinding.ItemArticleBinding
+
 import com.example.pbl_sns_project.databinding.ItemFollowListBinding
 
-import java.util.Date
 
-class FollowListAdapter(val onItemClicked: (followlist)-> Unit): ListAdapter<followlist, FollowListAdapter.ViewHolder>(diffUtil) {
+
+class FollowListAdapter(val onItemClicked: (Followlist)-> Unit): ListAdapter<Followlist, FollowListAdapter.ViewHolder>(
+    diffUtil
+) {
     inner class ViewHolder(private val binding: ItemFollowListBinding):RecyclerView.ViewHolder(binding.root){
-        fun bind(followlist: followlist){
+        fun bind(followlist: Followlist){
             binding.root.setOnClickListener {
                 onItemClicked(followlist)
             }
@@ -38,12 +37,12 @@ class FollowListAdapter(val onItemClicked: (followlist)-> Unit): ListAdapter<fol
     }
 
     companion object {
-        val diffUtil = object : DiffUtil.ItemCallback<followlist>() {
-            override fun areItemsTheSame(oldItem: followlist, newItem: followlist): Boolean {
+        val diffUtil = object : DiffUtil.ItemCallback<Followlist>() {
+            override fun areItemsTheSame(oldItem: Followlist, newItem: Followlist): Boolean {
                 return oldItem.key == newItem.key
             }
 
-            override fun areContentsTheSame(oldItem: followlist, newItem: followlist): Boolean {
+            override fun areContentsTheSame(oldItem: Followlist, newItem: Followlist): Boolean {
                 return oldItem == newItem
             }
 

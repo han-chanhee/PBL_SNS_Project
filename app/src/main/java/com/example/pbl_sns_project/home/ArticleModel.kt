@@ -1,4 +1,4 @@
-package com.example.snsproject.home
+package com.example.pbl_sns_project.home
 
 data class ArticleModel (
     val userId: String,

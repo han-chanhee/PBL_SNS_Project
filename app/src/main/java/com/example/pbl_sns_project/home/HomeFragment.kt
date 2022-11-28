@@ -1,4 +1,4 @@
-package com.example.snsproject.home
+package com.example.pbl_sns_project.home
 
 
 import android.annotation.SuppressLint
@@ -14,7 +14,7 @@ import com.example.pbl_sns_project.DBkey.Companion.DB_USERS
 import com.example.pbl_sns_project.DBkey.Companion.RELATION
 
 import com.example.pbl_sns_project.R
-import com.example.pbl_sns_project.alluser.followlist
+import com.example.pbl_sns_project.alluser.Followlist
 import com.example.pbl_sns_project.databinding.FragmentHomeBinding
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
@@ -38,6 +38,7 @@ class HomeFragment : Fragment(R.layout.fragment_home){
         @SuppressLint("SuspiciousIndentation")
         override fun onChildAdded(snapshot: DataSnapshot, previousChildName: String?) {
           val articleModel =snapshot.getValue(ArticleModel::class.java)
+
             articleModel ?: return
             articleList.add(articleModel)
             articleAdapter.submitList(articleList)
@@ -68,38 +69,25 @@ class HomeFragment : Fragment(R.layout.fragment_home){
         auth = Firebase.auth
         super.onViewCreated(view, savedInstanceState)
         val fragmentHomeBinding = FragmentHomeBinding.bind(view)
+        articleAdapter = ArticleAdapter(onItemClickedButton = { articleModel ->
+            if (auth.currentUser != null) {
+                if (auth.currentUser!!.email != articleModel.userId) {
+
+
+                    Snackbar.make(view, "팔로우 완료${articleModel.userId}", Snackbar.LENGTH_LONG).show()
+                } else {
+                    Snackbar.make(view, "나의 게시물:${auth.currentUser!!.email}", Snackbar.LENGTH_LONG).show()
+                }
+
+            }
+        })
+
         binding = fragmentHomeBinding
         articleList.clear()
         articleDB = Firebase.database.reference.child(DB_USERS)
         articleDB = Firebase.database.reference.child(DB_ARTICLES)
 
-        articleAdapter = ArticleAdapter(onItemClicked = { articleModel ->
-            if (auth.currentUser != null){
-                if(auth.currentUser!!.email != articleModel.userId){
-                    val followItem = followlist(
-                        followingid = auth.currentUser!!.email,
-                        followid = articleModel.userId,
-                        key = System.currentTimeMillis()
-                    )
-                    auth.currentUser!!.email?.let {
-                        userDB.child(it)
-                            .child(RELATION)
-                            .push()
-                            .setValue(followItem)
-                        userDB.child(articleModel.userId)
-                            .child(RELATION)
-                            .push()
-                            .setValue(followItem)
-                    }
 
-                    Snackbar.make(view,"팔로우 완료",Snackbar.LENGTH_LONG).show()
-                }
-                else{
-                    Snackbar.make(view,"${auth.currentUser!!.email}",Snackbar.LENGTH_LONG).show()
-                }
-
-            }
-        })
 
 
 

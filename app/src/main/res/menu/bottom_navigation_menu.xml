@@ -5,7 +5,7 @@
 
     <item android:id="@+id/allUser"
         android:icon="@drawable/ic_baseline_mood_24"
-        android:title="게시글 보기"
+        android:title="팔로우"
         />
     <item android:id="@+id/home"
         android:icon="@drawable/ic_baseline_home_24"

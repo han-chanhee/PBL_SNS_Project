@@ -1,4 +1,4 @@
-package com.example.snsproject.alluser
+package com.example.pbl_sns_project.alluser
 
 import android.os.Bundle
 import android.view.View
@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.pbl_sns_project.DBkey.Companion.DB_USERS
 import com.example.pbl_sns_project.DBkey.Companion.RELATION
 import com.example.pbl_sns_project.R
-import com.example.pbl_sns_project.alluser.followlist
 
 import com.example.pbl_sns_project.databinding.FragmentFollowBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -23,7 +22,7 @@ class FollowFragment: Fragment(R.layout.fragment_follow) {
     }
     private var binding: FragmentFollowBinding? = null
     private lateinit var followlistAdapter: FollowListAdapter
-    private  val followidlist = mutableListOf<followlist>()
+    private  val followidlist = mutableListOf<Followlist>()
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val fragmentAlluserBinding = FragmentFollowBinding.bind(view)
@@ -41,7 +40,7 @@ class FollowFragment: Fragment(R.layout.fragment_follow) {
         followDB.addListenerForSingleValueEvent(object: ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
                 snapshot.children.forEach{
-                    val model = it.getValue(followlist::class.java)
+                    val model = it.getValue(Followlist::class.java)
                     model ?: return
                     followidlist.add(model)
                 }

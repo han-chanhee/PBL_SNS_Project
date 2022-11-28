@@ -57,7 +57,7 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-        <activity android:name="com.example.snsproject.home.AddArticleActivity"/>
+        <activity android:name=".home.AddArticleActivity"/>
     </application>
 
 </manifest>
